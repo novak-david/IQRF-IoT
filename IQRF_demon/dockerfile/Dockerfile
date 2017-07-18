@@ -15,8 +15,10 @@ RUN	apt-get update \
 	&& apt-get install -y php5 \
 	&& cd /usr/ \
 	&& curl -s http://getcomposer.org/installer | php \
-	&& mv ./composer.phar /usr/local/bin/composer \ 
+	&& mv ./composer.phar /usr/local/bin/composer \
+	&& git clone https://github.com/iqrfsdk/iqrf-daemon-webapp.git \
 	&& cd /usr/iqrf-daemon-webapp/ \
+	&& composer install \
 	&& chmod 777 temp \
 	&& chmod 777 log \
 	&& composer create-project iqrfsdk/iqrf-daemon-webapp \
@@ -25,4 +27,4 @@ RUN	apt-get update \
 	&& rm -rf /var/lib/apt/lists/*
 EXPOSE 8000
 # run the daemon service 
-ENTRYPOINT /usr/bin/iqrf_startup /etc/iqrf-daemon/config.json
+ENTRYPOINT php -S localhost:8000 -t www/ && /usr/bin/iqrf_startup /etc/iqrf-daemon/config.json
