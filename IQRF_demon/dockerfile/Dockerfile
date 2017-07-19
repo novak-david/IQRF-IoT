@@ -10,7 +10,13 @@ RUN echo "deb http://repos.iqrfsdk.org/debian jessie testing" | sudo tee -a /etc
 
 # install daemon
 RUN	apt-get update \
+	&& apt-get install -y git \
 	&& apt-get install -y iqrf-daemon \
+	&& cd /usr/ \
+	&& git clone https://github.com/iqrfsdk/iqrf-daemon-webapp.git \
+	&& cd /usr/iqrf-daemon-webapp/install \
+	&& chmos 777 install.sh \
+	&& bash instal.sh \
 	&& apt-get clean \
 	&& rm -rf /var/lib/apt/lists/*
 
