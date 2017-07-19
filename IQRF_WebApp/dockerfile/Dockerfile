@@ -3,6 +3,7 @@ FROM php:7.0-apache
 MAINTAINER Vojtěch Novák "jotio@outlook.cz"
 RUN	apt-get update \
 	&& apt-get install -y git \
+	&& apt-get install --yes zip unzip php-pclzip \
 	&& cd /usr/ \
 	&& curl -s http://getcomposer.org/installer | php \
 	&& mv ./composer.phar /usr/local/bin/composer \
