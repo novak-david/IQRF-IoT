@@ -22,7 +22,7 @@ RUN	apt-get update \
 	&& chmod 777 temp \
 	&& chmod 777 log \
 	&& composer create-project iqrfsdk/iqrf-daemon-webapp \
-	&& php -S localhost:8000 -t www/ \
+	#&& php -S localhost:8000 -t www/ \
 	&& apt-get clean \
 	&& rm -rf /var/lib/apt/lists/*
 EXPOSE 8000
