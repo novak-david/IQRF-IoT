@@ -20,6 +20,6 @@ RUN	apt-get update \
 	&& bash install.sh \
 	&& apt-get clean \
 	&& rm -rf /var/lib/apt/lists/*
-
+EXPOSE 80
 # run the daemon service 
 ENTRYPOINT /usr/bin/iqrf_startup /etc/iqrf-daemon/config.json
