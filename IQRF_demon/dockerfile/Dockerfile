@@ -16,7 +16,7 @@ RUN	apt-get update \
 	&& git clone https://github.com/iqrfsdk/iqrf-daemon-webapp.git \
 	&& cd /usr/iqrf-daemon-webapp/install \
 	&& chmod 777 install.sh \
-	&& bash instal.sh \
+	&& bash install.sh \
 	&& apt-get clean \
 	&& rm -rf /var/lib/apt/lists/*
 
