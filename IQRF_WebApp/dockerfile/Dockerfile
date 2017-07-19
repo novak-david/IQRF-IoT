@@ -3,6 +3,7 @@
 FROM resin/up-board-debian:latest
 MAINTAINER Vojtěch Novák "jotio@outlook.cz"
 
+
 # install daemon
 RUN	apt-get update \
 	&& apt-get install -y git \
