@@ -11,20 +11,8 @@ RUN echo "deb http://repos.iqrfsdk.org/debian jessie testing" | sudo tee -a /etc
 # install daemon
 RUN	apt-get update \
 	&& apt-get install -y iqrf-daemon \
-	&& apt-get install -y git \
-	&& apt-get install -y php5 \
-	&& cd /usr/ \
-	&& curl -s http://getcomposer.org/installer | php \
-	&& mv ./composer.phar /usr/local/bin/composer \
-	&& git clone https://github.com/iqrfsdk/iqrf-daemon-webapp.git \
-	&& cd /usr/iqrf-daemon-webapp/ \
-	&& composer install \
-	&& chmod 777 temp \
-	&& chmod 777 log \
-	&& composer create-project iqrfsdk/iqrf-daemon-webapp \
-	#&& php -S localhost:8000 -t www/ \
 	&& apt-get clean \
 	&& rm -rf /var/lib/apt/lists/*
-EXPOSE 8000
-# php -S localhost:8000 -t www/  &&
-ENTRYPOINT  /usr/bin/iqrf_startup /etc/iqrf-daemon/config.json
+
+# run the daemon service 
+ENTRYPOINT /usr/bin/iqrf_startup /etc/iqrf-daemon/config.json
