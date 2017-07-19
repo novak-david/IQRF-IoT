@@ -17,4 +17,4 @@ EXPOSE 8000 80
 
 #CMD [ "php", "/usr/iqrf-daemon-webapp/www/index.php" ]
 #ENTRYPOINT  php -S localhost:8000 -t /usr/iqrf-daemon-webapp/www/
-ENTRYPOINT  ENTRYPOINT /usr/iqrf-daemon-webapp/install/install.sh ; /bin/bash
+ENTRYPOINT /usr/iqrf-daemon-webapp/install/install.sh ; /bin/bash
