@@ -6,6 +6,7 @@ RUN	apt-get update \
 	&& apt-get install -y git \
 	#&& sudo apt-get install python3 \
 	&& apt-get install --yes zip unzip php-pclzip \
+	&& cd /usr/ \
 	&& git clone https://github.com/iqrfsdk/iqrf-daemon-webapp.git \
 	&& cd /usr/iqrf-daemon-webapp/install \
 	&& chmod 777 install.sh \
