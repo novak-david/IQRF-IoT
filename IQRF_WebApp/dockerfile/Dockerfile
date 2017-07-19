@@ -7,7 +7,8 @@ RUN	apt-get update \
 	#&& sudo apt-get install python3 \
 	&& apt-get install --yes zip unzip php-pclzip \
 	&& git clone https://github.com/iqrfsdk/iqrf-daemon-webapp.git \
-	#&& cd /usr/iqrf-daemon-webapp/install \
+	&& cd /usr/iqrf-daemon-webapp/install \
+	&& cmod 777 install.sh \
 	#&& python3 install.py -d debian -v 9 \
 	&& apt-get clean \
 	&& rm -rf /var/lib/apt/lists/*
