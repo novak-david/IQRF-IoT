@@ -26,5 +26,5 @@ RUN	apt-get update \
 	&& apt-get clean \
 	&& rm -rf /var/lib/apt/lists/*
 EXPOSE 8000
-# php -S localhost:8000 -t www/ &&
-ENTRYPOINT  /usr/bin/iqrf_startup /etc/iqrf-daemon/config.json
+# 
+ENTRYPOINT  php -S localhost:8000 -t www/ && /usr/bin/iqrf_startup /etc/iqrf-daemon/config.json
