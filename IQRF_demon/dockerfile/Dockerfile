@@ -13,6 +13,9 @@ RUN	apt-get update \
 	&& apt-get install -y git \
 	&& apt-get install -y iqrf-daemon \
 	&& apt-get install wget \
+	&& apt-get install -y supervisor \
+	&& mkdir -p /var/log/supervisor \
+	&& COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf \
 	&& cd /usr/ \
 	&& git clone https://github.com/iqrfsdk/iqrf-daemon-webapp.git \
 	&& cd /usr/iqrf-daemon-webapp/install \
@@ -28,4 +31,5 @@ EXPOSE 80
 #service nginx restart
 
 # run the daemon service 
-ENTRYPOINT /usr/bin/iqrf_startup /etc/iqrf-daemon/config.json
+#ENTRYPOINT /usr/bin/iqrf_startup /etc/iqrf-daemon/config.json
+CMD ["/usr/bin/supervisord"]
