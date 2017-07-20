@@ -21,5 +21,11 @@ RUN	apt-get update \
 	&& apt-get clean \
 	&& rm -rf /var/lib/apt/lists/*
 EXPOSE 80
+
+# Restart PHP-FPM
+#service php5-fpm restart
+# Restart nginx
+#service nginx restart
+
 # run the daemon service 
 ENTRYPOINT /usr/bin/iqrf_startup /etc/iqrf-daemon/config.json
