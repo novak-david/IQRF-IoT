@@ -33,3 +33,4 @@ EXPOSE 80
 # run the daemon service 
 #ENTRYPOINT /usr/bin/iqrf_startup /etc/iqrf-daemon/config.json
 CMD ["/usr/bin/supervisord"]
+
