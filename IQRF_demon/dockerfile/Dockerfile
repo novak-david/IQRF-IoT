@@ -31,6 +31,6 @@ EXPOSE 80
 #service nginx restart
 
 # run the daemon service 
-#ENTRYPOINT /usr/bin/iqrf_startup /etc/iqrf-daemon/config.json
-CMD ["/usr/bin/supervisord"]
+ENTRYPOINT /usr/bin/iqrf_startup /etc/iqrf-daemon/config.json
+# CMD ["/usr/bin/supervisord"]
 
