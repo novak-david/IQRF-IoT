@@ -15,7 +15,7 @@ RUN	apt-get update \
 	&& apt-get install wget \
 	&& apt-get install -y supervisor \
 	&& mkdir -p /var/log/supervisor 
-COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf \	
+COPY supervisord.conf /etc/supervisor/conf.d/ \	
 RUN	cd /usr/ \
 	&& git clone https://github.com/iqrfsdk/iqrf-daemon-webapp.git \
 	&& cd /usr/iqrf-daemon-webapp/install \
