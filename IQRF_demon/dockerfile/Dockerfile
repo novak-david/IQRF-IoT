@@ -7,15 +7,16 @@ MAINTAINER Rostislav Spinar "rostislav.spinar@microrisc.com"
 # update repos
 RUN echo "deb http://repos.iqrfsdk.org/debian jessie testing" | sudo tee -a /etc/apt/sources.list.d/iqrf-daemon.list \
     && apt-key adv --keyserver keyserver.ubuntu.com --recv-keys F973CFCE6B3BE25C
-COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf \
+
 # install daemon
 RUN	apt-get update \
 	&& apt-get install -y git \
 	&& apt-get install -y iqrf-daemon \
 	&& apt-get install wget \
 	&& apt-get install -y supervisor \
-	&& mkdir -p /var/log/supervisor \
-	&& cd /usr/ \
+	&& mkdir -p /var/log/supervisor 
+COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf \	
+RUN	cd /usr/ \
 	&& git clone https://github.com/iqrfsdk/iqrf-daemon-webapp.git \
 	&& cd /usr/iqrf-daemon-webapp/install \
 	&& chmod 777 install.sh \
