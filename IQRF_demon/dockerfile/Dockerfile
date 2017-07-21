@@ -23,7 +23,7 @@ RUN	cd /usr/ \
 	&& bash install.sh \
 	&& apt-get clean \
 	&& rm -rf /var/lib/apt/lists/*
-EXPOSE 80
+EXPOSE 80 9001 55300
 
 # Restart PHP-FPM
 #service php5-fpm restart
@@ -31,8 +31,9 @@ EXPOSE 80
 #service nginx restart
 
 # run the daemon service 
-ENTRYPOINT /usr/bin/iqrf_startup /etc/iqrf-daemon/config.json
+# ENTRYPOINT /usr/bin/iqrf_startup /etc/iqrf-daemon/config.json
 # CMD ["/usr/bin/supervisord"]
-CMD supervisord -c /etc/supervisor/conf.d/supervisord.conf
+# CMD supervisord -c /etc/supervisor/conf.d/supervisord.conf
+ENTRYPOINT supervisord -c /etc/supervisor/conf.d/supervisord.conf
 
 
