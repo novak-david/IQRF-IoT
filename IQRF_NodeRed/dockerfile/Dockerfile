@@ -8,4 +8,4 @@ RUN	npm i node-red/node-red-dashboard \
 	&& npm i node-red-node-watson \
 	&& npm i node-red-contrib-scx-ibmiotapp 
 
-EXPOSE 1883 9001 
+EXPOSE 1880 9001 
