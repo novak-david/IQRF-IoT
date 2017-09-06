@@ -5,10 +5,9 @@ MAINTAINER Vojtěch Novák "jotio@outlook.com"
 
 # install ext.
 RUN cd /data \
-  && rm flows.json \
   && rm settings.js \
   && apt-get update \
-	&& apt-get install -y git \	
+  && apt-get install -y git \	
   && git clone https://github.com/JoTioTech/JoTio_NodeRed.git \
   && cd JoTio_NodeRed \
   && cp flows.json /data \
@@ -17,5 +16,5 @@ RUN cd /data \
   && npm i node-red/node-red-dashboard 
 #	&& npm i node-red-node-watson \
 #	&& npm i node-red-contrib-scx-ibmiotapp 
-
+# && rm flows.json \
 EXPOSE 1880 9001 
