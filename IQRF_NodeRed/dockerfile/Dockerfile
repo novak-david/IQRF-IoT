@@ -5,7 +5,7 @@ MAINTAINER Vojtěch Novák "jotio@outlook.com"
 
 # install ext.
 RUN cd /data \
-  && rm settings.js \
+ # && rm settings.js \
   && apt-get update \
   && apt-get install -y git \	
   && git clone https://github.com/JoTioTech/JoTio_NodeRed.git \
