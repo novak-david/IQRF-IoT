@@ -8,11 +8,11 @@ RUN apt-get update \
  # cd /data \
  # && rm settings.js \
  
-  && apt-get install -y nano \	
+# && apt-get install -y nano \	
   && apt-get install -y git \	
   && cd /home/node \
   && git clone https://github.com/JoTioTech/JoTio_NodeRed.git \
-  && cd JoTio_NodeRed \
+#  && cd JoTio_NodeRed \
 #  && cp flows.json /data \
 #  && cp settings.js /data \
 #  && chown -R node-red:node-red /data \
