@@ -4,8 +4,8 @@ FROM nodered/node-red-docker:latest
 MAINTAINER Vojtěch Novák "jotio@outlook.com"
 
 # install ext.
-RUN	npm i node-red/node-red-dashboard \
-	&& npm i node-red-node-watson \
-	&& npm i node-red-contrib-scx-ibmiotapp 
+RUN	npm i node-red/node-red-dashboard 
+#	&& npm i node-red-node-watson \
+#	&& npm i node-red-contrib-scx-ibmiotapp 
 
 EXPOSE 1880 9001 
