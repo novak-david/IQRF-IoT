@@ -1,11 +1,15 @@
-# T
+# NodeRed- IoT Starter Kit
+For editing go to yours URL/admin
 
-##T
-![Block schema](../schema/workshop-schema-docker.png "Schema for IQRF GWs in Docker")
+Eaxample if port mapping is set to 80:1880:
+http://192.168.1.1/admin
+Eaxample if port mapping is set to 1880:1880:
+http://192.168.1.1:1880/admin
 
-- IQRF  (configuration in [iqrf-daemon-config1](iqrf-daemon-config1) folder)
+username: admin
+password: iqrf
 
 ```Bash
-docker network create --subnet 10.1.0.0/16 --gateway 10.1.0.1 --ip-range=10.1.1.0/24 -driver=bridge --label=host1network bridge01
+sudo docker run -d -p 1880:1880 --restart=always --network=isolated_nw --ip=172.25.4.1 --name redgw jotio/iqrf_nr_iot:latest  
 ```
 
