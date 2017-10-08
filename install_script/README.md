@@ -10,7 +10,6 @@
 
 ### These commands can be run as a script:
 ```Bash
-cd Downloads/
 nano install.sh
 sudo chmod 777 install.sh
 sudo ./install.sh
