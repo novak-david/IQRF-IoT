@@ -1,11 +1,11 @@
 
 ## IoTStarterKit file contains a set of commands to install the following applications.
 
-- IQRF daemon + Web App          :80
+- IQRF daemon + Web App          
 - Docker
--- MQTT Broker               
--- JoTio NodeRed                 :1880
--- container management          :9000
+- MQTT Broker               
+- JoTio NodeRed                
+- container management          
 
 
 ### These commands can be run as a script:
