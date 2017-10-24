@@ -1,7 +1,7 @@
 sudo apt-get install curl apt-transport-https -y
 curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
-echo "deb https://download.docker.com/linux/debian jessie stable" | sudo tee -a /etc/apt/sources.list 
-echo "deb http://repos.iqrfsdk.org/debian jessie testing" | sudo tee -a /etc/apt/sources.list
+echo "deb https://download.docker.com/linux/debian stretch stable" | sudo tee -a /etc/apt/sources.list 
+echo "deb http://repos.iqrfsdk.org/debian stretch testing" | sudo tee -a /etc/apt/sources.list
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 66CB9A85
 sudo apt-get update
 sudo apt-get install docker-ce -y
