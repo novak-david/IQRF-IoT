@@ -1,0 +1,14 @@
+sudo apt-get install curl apt-transport-https -y
+curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
+echo "deb https://download.docker.com/linux/debian stretch stable" | sudo tee -a /etc/apt/sources.list 
+echo "deb http://repos.iqrfsdk.org/debian stretch testing" | sudo tee -a /etc/apt/sources.list 
+sudo apt-get update
+sudo apt-get install docker-ce -y
+sudo apt-get install iqrf-daemon -y --allow-unauthenticated
+git clone https://github.com/iqrfsdk/iqrf-daemon-webapp.git
+cd iqrf-daemon-webapp/install
+sudo python3 install.py -d debian -v 9
+sudo docker network create -d bridge --subnet 172.25.0.0/16 isolated_nw
+sudo docker run -d -p 1883:1883 -p 9001:9001 --network=isolated_nw --ip=172.25.3.1 --restart=always --name mqtt eclipse-mosquitto
+sudo docker run -d -p 9000:9000 -v /var/run/docker.sock:/var/run/docker.sock --restart=alway --restart=always portainer/portainer
+sudo docker run -d -p 1880:1880 --restart=always --network=isolated_nw --ip=172.25.4.1 --name redgw jotio/iqrf_nr_iot:latest 
